@@ -1,0 +1,6 @@
+config_id,items,passed_every_run,passed_some_runs,never_passed
+l4_off,76,64,10,2
+l4_high,76,58,10,8
+sol_low,76,75,1,0
+sol_high,76,76,0,0
+l3,76,43,16,17

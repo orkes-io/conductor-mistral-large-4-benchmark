@@ -1,0 +1,72 @@
+{
+  "name": "ml4_native_connector_check",
+  "description": "Sends one prompt through Conductor's built-in LLM_CHAT_COMPLETE task to Mistral Large 4, Mistral Large 3 and an OpenAI control model, side by side.",
+  "version": 1,
+  "schemaVersion": 2,
+  "inputParameters": ["prompt", "mistralProvider", "openaiProvider", "openaiModel"],
+  "tasks": [
+    {
+      "name": "fork_models",
+      "taskReferenceName": "fork_models",
+      "type": "FORK_JOIN",
+      "forkTasks": [
+        [
+          {
+            "name": "chat_mistral_large_4",
+            "taskReferenceName": "chat_mistral_large_4",
+            "type": "LLM_CHAT_COMPLETE",
+            "optional": true,
+            "inputParameters": {
+              "llmProvider": "${workflow.input.mistralProvider}",
+              "model": "mistral-large-4",
+              "messages": [{"role": "user", "message": "${workflow.input.prompt}"}],
+              "maxTokens": 2000
+            }
+          }
+        ],
+        [
+          {
+            "name": "chat_mistral_large_3",
+            "taskReferenceName": "chat_mistral_large_3",
+            "type": "LLM_CHAT_COMPLETE",
+            "optional": true,
+            "inputParameters": {
+              "llmProvider": "${workflow.input.mistralProvider}",
+              "model": "mistral-large-2512",
+              "messages": [{"role": "user", "message": "${workflow.input.prompt}"}],
+              "maxTokens": 2000
+            }
+          }
+        ],
+        [
+          {
+            "name": "chat_openai_control",
+            "taskReferenceName": "chat_openai_control",
+            "type": "LLM_CHAT_COMPLETE",
+            "optional": true,
+            "inputParameters": {
+              "llmProvider": "${workflow.input.openaiProvider}",
+              "model": "${workflow.input.openaiModel}",
+              "messages": [{"role": "user", "message": "${workflow.input.prompt}"}],
+              "maxTokens": 2000
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "name": "join_models",
+      "taskReferenceName": "join_models",
+      "type": "JOIN",
+      "joinOn": ["chat_mistral_large_4", "chat_mistral_large_3", "chat_openai_control"]
+    }
+  ],
+  "outputParameters": {
+    "mistral_large_4": "${chat_mistral_large_4.output.result}",
+    "mistral_large_3": "${chat_mistral_large_3.output.result}",
+    "openai_control": "${chat_openai_control.output.result}"
+  },
+  "ownerEmail": "nicholas.lotz@orkes.io",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0
+}

@@ -1,0 +1,21 @@
+{
+  "run_id": "repair-full-r1-1",
+  "rows": 1,
+  "configs": {
+    "l3": {
+      "label": "Mistral Large 3 (baseline)",
+      "runs": 1,
+      "pass_rate": 0.0,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "agentic": 0.0
+      },
+      "latency_ms_median": 3755,
+      "latency_ms_p90": 3755,
+      "output_tokens_total": 208,
+      "reasoning_tokens_total": 0,
+      "output_tokens_median": 208
+    }
+  },
+  "written": "/Users/nicklotz/mistral-large-4-benchmark/results/repair-full-r1-1"
+}

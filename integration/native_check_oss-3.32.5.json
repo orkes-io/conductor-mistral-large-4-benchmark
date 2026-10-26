@@ -1,0 +1,127 @@
+{
+  "env": "oss-3.32.5",
+  "server": "http://localhost:8080",
+  "server_version": "3.32.5",
+  "workflow_id": "06fe5dc3-d929-4e8a-be67-7ca93b323a0b",
+  "workflow_status": "COMPLETED",
+  "checked_at": "2026-10-24 22:56:14 CDT",
+  "tasks": [
+    {
+      "task": "chat_mistral_large_4",
+      "model": "mistral-large-4",
+      "status": "FAILED",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 3962
+    },
+    {
+      "task": "chat_mistral_large_3",
+      "model": "mistral-large-2512",
+      "status": "FAILED",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 1193
+    },
+    {
+      "task": "chat_openai_control",
+      "model": "gpt-4.1",
+      "status": "COMPLETED",
+      "reason": "",
+      "result": "A workflow orchestration engine automates, coordinates, and manages the execution of complex processes or tasks across multiple systems and services, ensuring they occur in the correct order and handl",
+      "tokens": {
+        "promptTokens": 20,
+        "completionTokens": 37,
+        "tokenUsed": 57
+      },
+      "duration_ms": 1376
+    },
+    {
+      "task": "chat_mistral_large_3",
+      "model": "mistral-large-2512",
+      "status": "FAILED",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 888
+    },
+    {
+      "task": "chat_mistral_large_4",
+      "model": "mistral-large-4",
+      "status": "FAILED",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 4669
+    },
+    {
+      "task": "chat_mistral_large_3",
+      "model": "mistral-large-2512",
+      "status": "FAILED",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 963
+    },
+    {
+      "task": "chat_mistral_large_3",
+      "model": "mistral-large-2512",
+      "status": "COMPLETED_WITH_ERRORS",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 781
+    },
+    {
+      "task": "chat_mistral_large_4",
+      "model": "mistral-large-4",
+      "status": "FAILED",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 3611
+    },
+    {
+      "task": "chat_mistral_large_4",
+      "model": "mistral-large-4",
+      "status": "COMPLETED_WITH_ERRORS",
+      "reason": "Task execution failed: Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json] \u2014 caused by: Illegal character ((CTRL-CHAR, code 31)): only regular white space (\\r, \\n, \\t) is allowed between tokens\n at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 2]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 7891
+    }
+  ]
+}

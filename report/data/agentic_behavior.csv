@@ -1,0 +1,6 @@
+config_id,pass_rate,turns_mean,runs_with_forbidden_action,runs_missing_required_action,latency_median_s
+l4_off,0.97,3.75,1,1,6.02
+l4_high,1.0,3.64,0,0,7.02
+sol_low,1.0,3.69,0,0,6.79
+sol_high,1.0,3.72,0,0,6.68
+l3,0.75,3.69,6,7,5.44

@@ -1,0 +1,6 @@
+config,label,runs,items,pass_rate,ci95_low,ci95_high,api_errors,hit_token_cap,latency_median_s,latency_p90_s,output_tokens_mean,reasoning_tokens_mean,output_tokens_median,tokens_total,est_cost_usd_list
+l4_off,Large 4 · reasoning off,228,76,0.921,0.873,0.965,0,1,5.9,19.3,1274,0,578,609648,1.65
+l4_high,Large 4 · reasoning high,228,76,0.82,0.737,0.89,0,39,17.6,203.3,9289,8889,1865,2429144,9.28
+sol_low,GPT-6.1 Sol · low,228,76,0.996,0.987,1.0,0,0,5.4,9.0,301,65,255,810057,2.17
+sol_high,GPT-6.1 Sol · high,228,76,1.0,1.0,1.0,0,0,7.4,21.2,585,346,380,1116030,3.3
+l3,Large 3,228,76,0.684,0.583,0.772,0,0,5.4,20.0,851,0,362,515130,0.45

@@ -1,0 +1,5 @@
+- 23:05 manually completed ml4_score task 0sfj2db722da-d028-11f1-ba7a-56adf5b8ca14 (reasoning-016, sol_low) with the worker's own deterministic output; the worker's update was lost during an HTTP/2 connection reset.
+- re-ran agentic-010 / l3 as repair-full-r1-1 after an API-level failure; analyze.py uses the repaired result.
+- re-scored web-grounded answers with the broadened citation rule (URL, website or API reference); 2 result(s) changed. Original file kept as results.jsonl.orig.
+- re-scored web-grounded answers with the broadened citation rule (URL, website or API reference); 4 result(s) changed. Original file kept as results.jsonl.orig.
+- re-judged ['your_data-008'] after the rubric fix in evals/CHANGELOG.md; 2 result(s) changed. Pre-rejudge file kept as results.jsonl.pre-rejudge.

@@ -1,0 +1,26 @@
+# Local environment, keys and logs
+.venv/
+.browser-profile/
+logs/
+__pycache__/
+.DS_Store
+env/litellm/.env
+
+# Drive copy and unpublished drafts
+START_HERE.md
+CLAUDE.md
+*.docx
+blog/
+
+# Screenshot tooling (needs a logged-in browser profile), dev scratch and Drive export
+scripts/shots*.py
+scripts/shots*.json
+scripts/ui.py
+scripts/login_once.py
+scripts/de_ui_check.py
+scripts/dev_direct.py
+scripts/probes/
+scripts/make_share_copy.py
+scripts/build_report_docx.py
+scripts/*.png
+report/screenshots/pilot/

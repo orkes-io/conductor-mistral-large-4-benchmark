@@ -1,0 +1,18 @@
+# LiteLLM proxy in front of Mistral, so Conductor's built-in LLM tasks can reach Mistral Large 4
+# through Conductor OSS's "litellm" provider (an OpenAI-compatible client).
+model_list:
+  - model_name: mistral-large-4            # thinking on (Mistral's default)
+    litellm_params:
+      model: mistral/mistral-large-4
+      api_key: os.environ/MISTRAL_API_KEY
+  - model_name: mistral-large-4-fast       # thinking off
+    litellm_params:
+      model: mistral/mistral-large-4
+      api_key: os.environ/MISTRAL_API_KEY
+      reasoning_effort: none
+  - model_name: mistral-large-3
+    litellm_params:
+      model: mistral/mistral-large-2512
+      api_key: os.environ/MISTRAL_API_KEY
+litellm_settings:
+  drop_params: true

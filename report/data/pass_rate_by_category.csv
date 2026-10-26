@@ -1,0 +1,6 @@
+category,l4_off,l4_high,sol_low,sol_high,l3
+reasoning,0.917,1.0,1.0,1.0,0.633
+coding,0.95,0.333,1.0,1.0,0.433
+agentic,0.972,1.0,1.0,1.0,0.75
+grounding,0.972,0.972,1.0,1.0,0.972
+your_data,0.778,1.0,0.972,1.0,0.833

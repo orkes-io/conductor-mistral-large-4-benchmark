@@ -1,0 +1,40 @@
+{
+  "workflow_id": "0sfjcec2eb3c-d02a-11f1-89ad-1a5d2f4e051b",
+  "started": "2026-10-24T23:16:10-0500",
+  "server": "https://developer.orkescloud.com",
+  "input": {
+    "run_id": "followup-l4-128k",
+    "dataset": null,
+    "configs": [
+      {
+        "id": "l4_high_128k",
+        "label": "Mistral Large 4 (reasoning high, 128k output cap)",
+        "provider": "mistral",
+        "model": "mistral-large-4",
+        "reasoning_effort": "high",
+        "max_tokens": 131072,
+        "max_tokens_search": 8000
+      }
+    ],
+    "repeats": 1,
+    "batch_size": 9,
+    "judge": {
+      "model": "gpt-6-astra",
+      "reasoning_effort": "low",
+      "max_tokens": 4000
+    },
+    "categories": null,
+    "item_ids": [
+      "coding-001",
+      "coding-002",
+      "coding-004",
+      "coding-005",
+      "coding-006",
+      "coding-007",
+      "coding-008",
+      "coding-009",
+      "coding-011"
+    ],
+    "limit_per_category": null
+  }
+}

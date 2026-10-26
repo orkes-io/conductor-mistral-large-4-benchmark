@@ -1,0 +1,66 @@
+{
+  "workflow_id": "0sfjda65c93c-d027-11f1-ba7a-56adf5b8ca14",
+  "started": "2026-10-24T22:55:01-0500",
+  "server": "https://developer.orkescloud.com",
+  "input": {
+    "run_id": "full-r1",
+    "dataset": null,
+    "configs": [
+      {
+        "id": "l4_off",
+        "label": "Mistral Large 4 (reasoning off)",
+        "provider": "mistral",
+        "model": "mistral-large-4",
+        "reasoning_effort": "none",
+        "max_tokens": 32000,
+        "max_tokens_search": 8000
+      },
+      {
+        "id": "l4_high",
+        "label": "Mistral Large 4 (reasoning high)",
+        "provider": "mistral",
+        "model": "mistral-large-4",
+        "reasoning_effort": "high",
+        "max_tokens": 32000,
+        "max_tokens_search": 8000
+      },
+      {
+        "id": "sol_low",
+        "label": "GPT-6.1 Sol (reasoning low)",
+        "provider": "openai",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "low",
+        "max_tokens": 32000,
+        "max_tokens_search": 8000
+      },
+      {
+        "id": "sol_high",
+        "label": "GPT-6.1 Sol (reasoning high)",
+        "provider": "openai",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "high",
+        "max_tokens": 32000,
+        "max_tokens_search": 8000
+      },
+      {
+        "id": "l3",
+        "label": "Mistral Large 3 (baseline)",
+        "provider": "mistral",
+        "model": "mistral-large-2512",
+        "reasoning_effort": null,
+        "max_tokens": 32000,
+        "max_tokens_search": 8000
+      }
+    ],
+    "repeats": 1,
+    "batch_size": 8,
+    "judge": {
+      "model": "gpt-6-astra",
+      "reasoning_effort": "low",
+      "max_tokens": 4000
+    },
+    "categories": null,
+    "item_ids": null,
+    "limit_per_category": null
+  }
+}

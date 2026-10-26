@@ -1,0 +1,6 @@
+config_id,pass_rate,searches_mean,search_tokens_mean,input_tokens_mean,cited_rate,latency_median_s
+l4_off,0.97,6.5,30003.25,808.83,0.97,15.21
+l4_high,0.97,3.97,17823.56,808.83,0.97,16.76
+sol_low,1.0,1.22,0.0,13380.39,1.0,6.11
+sol_high,1.0,2.25,0.0,19997.81,1.0,7.88
+l3,0.97,1.33,8734.56,829.67,1.0,4.48

@@ -1,0 +1,43 @@
+{
+ "agentic_l4_high": "0sfjdeeb949b-d026-11f1-ba7a-56adf5b8ca14",
+ "agentic_l4_high_parent": "0sfjd7bb106e-d026-11f1-ba7a-56adf5b8ca14",
+ "coding_l4_high": "0sfjde608722-d026-11f1-89ad-1a5d2f4e051b",
+ "coding_l4_high_parent": "0sfjd7bae95d-d026-11f1-ba7a-56adf5b8ca14",
+ "coding_sol_high": "0sfjde60d544-d026-11f1-89ad-1a5d2f4e051b",
+ "coding_sol_high_parent": "0sfjd7bae95d-d026-11f1-ba7a-56adf5b8ca14",
+ "yourdata_l4_off": "0sfjd7e47e81-d026-11f1-9071-46362399c705",
+ "yourdata_l4_off_parent": "0sfjd7bb3781-d026-11f1-ba7a-56adf5b8ca14",
+ "grounding_l4_off": "0sfjd8d670f9-d026-11f1-aff9-321d2204384c",
+ "grounding_l4_off_parent": "0sfjd7bb1070-d026-11f1-ba7a-56adf5b8ca14",
+ "coding_l4_high_subs": [
+  [
+   "call",
+   "0sfjde75ef5f-d026-11f1-ba7a-56adf5b8ca14"
+  ]
+ ],
+ "yourdata_l4_off_subs": [
+  [
+   "call",
+   "0sfjd81496c8-d026-11f1-89ad-1a5d2f4e051b"
+  ],
+  [
+   "judge_call",
+   "0sfjda258652-d026-11f1-aff9-321d2204384c"
+  ]
+ ],
+ "agentic_l4_high_subs": [
+  [
+   "agent_call__1",
+   "0sfjdf0552b8-d026-11f1-89ad-1a5d2f4e051b"
+  ],
+  [
+   "agent_call__2",
+   "0sfjdfd62120-d026-11f1-aff9-321d2204384c"
+  ],
+  [
+   "agent_call__3",
+   "0sfje0f0eea3-d026-11f1-9071-46362399c705"
+  ]
+ ],
+ "run": "0sfjd780bb34-d026-11f1-89ad-1a5d2f4e051b"
+}

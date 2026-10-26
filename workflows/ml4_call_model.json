@@ -1,0 +1,90 @@
+{
+  "name": "ml4_call_model",
+  "description": "One model API call. Routes to Mistral or OpenAI over a plain HTTP task (API keys come from Conductor secrets), then normalizes the reply into one shape: text, tool calls, citations, token usage and latency.",
+  "version": 1,
+  "schemaVersion": 2,
+  "inputParameters": ["route", "request"],
+  "tasks": [
+    {
+      "name": "route_provider",
+      "taskReferenceName": "route_provider",
+      "type": "SWITCH",
+      "evaluatorType": "value-param",
+      "expression": "provider",
+      "inputParameters": {"provider": "${workflow.input.request.provider}"},
+      "decisionCases": {
+        "mistral": [
+          {
+            "name": "ml4_http_mistral",
+            "taskReferenceName": "http_mistral",
+            "type": "HTTP",
+            "optional": true,
+            "inputParameters": {
+              "http_request": {
+                "uri": "${workflow.input.request.uri}",
+                "method": "POST",
+                "accept": "application/json",
+                "contentType": "application/json",
+                "headers": {"Authorization": "Bearer ${workflow.secrets.ml4_mistral_api_key}"},
+                "body": "${workflow.input.request.body}",
+                "connectionTimeOut": 15000,
+                "readTimeOut": 900000
+              }
+            }
+          }
+        ],
+        "openai": [
+          {
+            "name": "ml4_http_openai",
+            "taskReferenceName": "http_openai",
+            "type": "HTTP",
+            "optional": true,
+            "inputParameters": {
+              "http_request": {
+                "uri": "${workflow.input.request.uri}",
+                "method": "POST",
+                "accept": "application/json",
+                "contentType": "application/json",
+                "headers": {"Authorization": "Bearer ${workflow.secrets.ml4_openai_api_key}"},
+                "body": "${workflow.input.request.body}",
+                "connectionTimeOut": 15000,
+                "readTimeOut": 900000
+              }
+            }
+          }
+        ]
+      },
+      "defaultCase": []
+    },
+    {
+      "name": "ml4_normalize",
+      "taskReferenceName": "normalize",
+      "type": "SIMPLE",
+      "inputParameters": {
+        "route": "${workflow.input.route}",
+        "mistral": {
+          "response": "${http_mistral.output.response}",
+          "status": "${http_mistral.status}",
+          "start": "${http_mistral.startTime}",
+          "end": "${http_mistral.endTime}",
+          "scheduled": "${http_mistral.scheduledTime}",
+          "retries": "${http_mistral.retryCount}",
+          "reason": "${http_mistral.reasonForIncompletion}"
+        },
+        "openai": {
+          "response": "${http_openai.output.response}",
+          "status": "${http_openai.status}",
+          "start": "${http_openai.startTime}",
+          "end": "${http_openai.endTime}",
+          "scheduled": "${http_openai.scheduledTime}",
+          "retries": "${http_openai.retryCount}",
+          "reason": "${http_openai.reasonForIncompletion}"
+        }
+      }
+    }
+  ],
+  "outputParameters": {"result": "${normalize.output.result}"},
+  "ownerEmail": "nicholas.lotz@orkes.io",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0
+}

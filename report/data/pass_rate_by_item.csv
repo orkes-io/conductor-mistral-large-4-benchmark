@@ -1,0 +1,77 @@
+item_id,category,title,l4_off,l4_high,sol_low,sol_high,l3
+agentic-001,agentic,Roll back only the service with a fresh deploy,1.0,1.0,1.0,1.0,1.0
+agentic-002,agentic,Book a cross-time-zone meeting inside working hours,1.0,1.0,1.0,1.0,0.333
+agentic-003,agentic,Book travel inside the per-diem policy,0.667,1.0,1.0,1.0,0.0
+agentic-004,agentic,"Delete only stale unattached volumes, snapshot first",1.0,1.0,1.0,1.0,1.0
+agentic-005,agentic,Approve or deny database access per policy,1.0,1.0,1.0,1.0,0.667
+agentic-006,agentic,Hold a release that has an open SEV2,1.0,1.0,1.0,1.0,1.0
+agentic-007,agentic,Reorder low stock from the fastest approved supplier,1.0,1.0,1.0,1.0,1.0
+agentic-008,agentic,Triage a failed pipeline run,1.0,1.0,1.0,1.0,0.667
+agentic-009,agentic,Escalate a SEV1 to the right on-call,1.0,1.0,1.0,1.0,1.0
+agentic-010,agentic,Roll firmware out only to eligible thermostats,1.0,1.0,1.0,1.0,0.333
+agentic-011,agentic,Pick a laptop vendor by procurement rules,1.0,1.0,1.0,1.0,1.0
+agentic-012,agentic,Route support tickets by tier and priority,1.0,1.0,1.0,1.0,1.0
+coding-001,coding,ISO 8601 duration to seconds,1.0,0.0,1.0,1.0,0.0
+coding-002,coding,Semantic version range check,1.0,0.333,1.0,1.0,0.667
+coding-003,coding,Merge labeled intervals,1.0,0.667,1.0,1.0,0.0
+coding-004,coding,Next run time for a cron expression,0.667,0.0,1.0,1.0,0.0
+coding-005,coding,Strict CSV line parser,1.0,0.333,1.0,1.0,0.667
+coding-006,coding,RFC 6901 JSON Pointer lookup,1.0,0.0,1.0,1.0,1.0
+coding-007,coding,Glob matching with character classes,0.667,0.0,1.0,1.0,0.0
+coding-008,coding,Subtract IPv4 CIDR blocks,1.0,0.0,1.0,1.0,0.0
+coding-009,coding,Exact arithmetic expression evaluator,1.0,0.333,1.0,1.0,0.0
+coding-010,coding,Optimal string alignment distance,1.0,1.0,1.0,1.0,0.667
+coding-011,coding,Add business days with holidays,1.0,0.333,1.0,1.0,1.0
+coding-012,coding,Token bucket rate limiter,1.0,0.667,1.0,1.0,1.0
+coding-013,coding,Lexicographically smallest topological order,1.0,1.0,1.0,1.0,0.667
+coding-014,coding,Greedy text wrapping with long words,1.0,0.333,1.0,1.0,1.0
+coding-015,coding,Accept-Language negotiation,0.667,0.0,1.0,1.0,0.0
+coding-016,coding,Natural sort order,1.0,1.0,1.0,1.0,0.0
+coding-017,coding,LFU cache with LRU tie-break,1.0,0.333,1.0,1.0,1.0
+coding-018,coding,Split a SQL script into statements,1.0,0.0,1.0,1.0,1.0
+coding-019,coding,Earliest common free meeting slot,1.0,0.333,1.0,1.0,0.0
+coding-020,coding,Currency formatting with banker's rounding,1.0,0.0,1.0,1.0,0.0
+grounding-001,grounding,2026 Nobel Prize in Physics,1.0,1.0,1.0,1.0,1.0
+grounding-002,grounding,2026 Nobel Prize in Physiology or Medicine,1.0,1.0,1.0,1.0,1.0
+grounding-003,grounding,2026 Nobel Literature and Peace laureates,1.0,1.0,1.0,1.0,1.0
+grounding-004,grounding,2026 US Open men's singles final,0.667,1.0,1.0,1.0,1.0
+grounding-005,grounding,2026 US Open women's singles final score,1.0,1.0,1.0,1.0,1.0
+grounding-006,grounding,2026 Asian Games medal table leader,1.0,1.0,1.0,1.0,1.0
+grounding-007,grounding,Python 3.15.0 release date and release manager,1.0,1.0,1.0,1.0,1.0
+grounding-008,grounding,Kubernetes v1.37 release name and date,1.0,1.0,1.0,1.0,1.0
+grounding-009,grounding,Latest stable Conductor OSS release (Oct 2026),1.0,1.0,1.0,1.0,1.0
+grounding-010,grounding,Vega-C flight VV30 payloads,1.0,1.0,1.0,1.0,1.0
+grounding-011,grounding,US 2025 median household income and poverty rate,1.0,1.0,1.0,1.0,1.0
+grounding-012,grounding,Mistral Large 4 announcement and size,1.0,0.667,1.0,1.0,0.667
+reasoning-001,reasoning,Six-digit numbers with digit sum 27,1.0,1.0,1.0,1.0,1.0
+reasoning-002,reasoning,Seven-seat row logic puzzle,1.0,1.0,1.0,1.0,0.333
+reasoning-003,reasoning,String rotate-and-shift trace,0.333,1.0,1.0,1.0,0.0
+reasoning-004,reasoning,New York to London across the DST gap,1.0,1.0,1.0,1.0,0.0
+reasoning-005,reasoning,"Divisible by exactly two of 4, 6 and 9",1.0,1.0,1.0,1.0,1.0
+reasoning-006,reasoning,Four dice: max is twice the min,1.0,1.0,1.0,1.0,1.0
+reasoning-007,reasoning,Friday the 13ths in 2026-2030,1.0,1.0,1.0,1.0,0.667
+reasoning-008,reasoning,SLA deadline over the holidays,1.0,1.0,1.0,1.0,0.333
+reasoning-009,reasoning,Round-robin scheduler with arrivals,1.0,1.0,1.0,1.0,0.667
+reasoning-010,reasoning,Shift-and-xor hash trace,1.0,1.0,1.0,1.0,0.0
+reasoning-011,reasoning,Shortest route that must pass through D,1.0,1.0,1.0,1.0,1.0
+reasoning-012,reasoning,Counting paths in a dependency graph,1.0,1.0,1.0,1.0,1.0
+reasoning-013,reasoning,Most jobs finished by their deadlines,0.667,1.0,1.0,1.0,0.0
+reasoning-014,reasoning,Upgrade budget with dependencies,1.0,1.0,1.0,1.0,1.0
+reasoning-015,reasoning,Drawing all three marble colors,1.0,1.0,1.0,1.0,1.0
+reasoning-016,reasoning,Four houses: owners and pets,1.0,1.0,1.0,1.0,0.667
+reasoning-017,reasoning,Sydney call in three other time zones,1.0,1.0,1.0,1.0,1.0
+reasoning-018,reasoning,"Two pipes, a drain and a 3/4 tank",1.0,1.0,1.0,1.0,1.0
+reasoning-019,reasoning,"ABC strings with no repeats, each letter twice",0.333,1.0,1.0,1.0,0.0
+reasoning-020,reasoning,"Smallest number above 10,000 from remainders",1.0,1.0,1.0,1.0,1.0
+your_data-001,your_data,SEV-1 status page cadence,1.0,1.0,1.0,1.0,1.0
+your_data-002,your_data,Escalating an unmitigated API error spike,0.667,1.0,0.667,1.0,1.0
+your_data-003,your_data,Platinum downtime budget,1.0,1.0,1.0,1.0,1.0
+your_data-004,your_data,Security patch during the holiday freeze,0.667,1.0,1.0,1.0,0.667
+your_data-005,your_data,Time in lieu for overnight incidents,1.0,1.0,1.0,1.0,0.0
+your_data-006,your_data,Incident chat log retention,1.0,1.0,1.0,1.0,1.0
+your_data-007,your_data,Postmortem draft vs customer RCA deadlines,1.0,1.0,1.0,1.0,1.0
+your_data-008,your_data,Friday deploy with the standard canary,0.0,1.0,1.0,1.0,0.333
+your_data-009,your_data,Weekly on-call pay with extra pages,1.0,1.0,1.0,1.0,1.0
+your_data-010,your_data,Silver tier uptime SLA,1.0,1.0,1.0,1.0,1.0
+your_data-011,your_data,On-call exemption after parental leave,0.0,1.0,1.0,1.0,1.0
+your_data-012,your_data,Disaster recovery region,1.0,1.0,1.0,1.0,1.0

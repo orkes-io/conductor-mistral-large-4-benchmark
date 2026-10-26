@@ -1,0 +1,49 @@
+{
+  "env": "orkes-local-6.0.0",
+  "server": "http://localhost:8082",
+  "server_version": "6.0.0",
+  "workflow_id": "e649c6e1-d028-11f1-8fff-eed7b11c4f84",
+  "workflow_status": "COMPLETED",
+  "checked_at": "2026-10-24 23:02:36 CDT",
+  "tasks": [
+    {
+      "task": "chat_mistral_large_4",
+      "model": "mistral-large-4",
+      "status": "COMPLETED_WITH_ERRORS",
+      "reason": "Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 3275
+    },
+    {
+      "task": "chat_mistral_large_3",
+      "model": "mistral-large-2512",
+      "status": "COMPLETED_WITH_ERRORS",
+      "reason": "Error while extracting response for type [org.springframework.ai.mistralai.api.MistralAiApi$ChatCompletion] and content type [application/json]",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 1499
+    },
+    {
+      "task": "chat_openai_control",
+      "model": "gpt-4.1",
+      "status": "COMPLETED",
+      "reason": "",
+      "result": "A workflow orchestration engine automates, coordinates, and manages the execution of complex sequences of tasks or processes across multiple systems and services.",
+      "tokens": {
+        "promptTokens": 20,
+        "completionTokens": 28,
+        "tokenUsed": 48
+      },
+      "duration_ms": 1759
+    }
+  ]
+}

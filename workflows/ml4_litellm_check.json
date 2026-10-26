@@ -1,0 +1,96 @@
+{
+  "name": "ml4_litellm_check",
+  "description": "Conductor's built-in LLM_CHAT_COMPLETE reaching Mistral Large 4 through the LiteLLM provider (thinking on and off), next to an OpenAI control.",
+  "version": 1,
+  "schemaVersion": 2,
+  "inputParameters": [
+    "prompt",
+    "mistralProvider",
+    "openaiProvider",
+    "openaiModel"
+  ],
+  "tasks": [
+    {
+      "name": "fork_models",
+      "taskReferenceName": "fork_models",
+      "type": "FORK_JOIN",
+      "forkTasks": [
+        [
+          {
+            "name": "chat_l4_via_litellm",
+            "taskReferenceName": "chat_l4_via_litellm",
+            "type": "LLM_CHAT_COMPLETE",
+            "optional": true,
+            "inputParameters": {
+              "llmProvider": "litellm",
+              "model": "mistral-large-4",
+              "messages": [
+                {
+                  "role": "user",
+                  "message": "${workflow.input.prompt}"
+                }
+              ],
+              "maxTokens": 2000
+            }
+          }
+        ],
+        [
+          {
+            "name": "chat_l4_fast_via_litellm",
+            "taskReferenceName": "chat_l4_fast_via_litellm",
+            "type": "LLM_CHAT_COMPLETE",
+            "optional": true,
+            "inputParameters": {
+              "llmProvider": "litellm",
+              "model": "mistral-large-4-fast",
+              "messages": [
+                {
+                  "role": "user",
+                  "message": "${workflow.input.prompt}"
+                }
+              ],
+              "maxTokens": 2000
+            }
+          }
+        ],
+        [
+          {
+            "name": "chat_openai_control",
+            "taskReferenceName": "chat_openai_control",
+            "type": "LLM_CHAT_COMPLETE",
+            "optional": true,
+            "inputParameters": {
+              "llmProvider": "${workflow.input.openaiProvider}",
+              "model": "${workflow.input.openaiModel}",
+              "messages": [
+                {
+                  "role": "user",
+                  "message": "${workflow.input.prompt}"
+                }
+              ],
+              "maxTokens": 2000
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "name": "join_models",
+      "taskReferenceName": "join_models",
+      "type": "JOIN",
+      "joinOn": [
+        "chat_l4_via_litellm",
+        "chat_l4_fast_via_litellm",
+        "chat_openai_control"
+      ]
+    }
+  ],
+  "outputParameters": {
+    "l4_via_litellm": "${chat_l4_via_litellm.output.result}",
+    "l4_fast_via_litellm": "${chat_l4_fast_via_litellm.output.result}",
+    "openai_control": "${chat_openai_control.output.result}"
+  },
+  "ownerEmail": "nicholas.lotz@orkes.io",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0
+}

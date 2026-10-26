@@ -1,0 +1,42 @@
+{
+  "name": "ml4_bench_item",
+  "description": "Fork/join: sends the same eval item to every model config in parallel (one ml4_eval_one sub-workflow per config) and joins the scored results.",
+  "version": 1,
+  "schemaVersion": 2,
+  "inputParameters": ["item_id", "repeat", "configs", "dataset", "run_id", "judge"],
+  "tasks": [
+    {
+      "name": "ml4_plan_item_fork",
+      "taskReferenceName": "plan_configs",
+      "type": "SIMPLE",
+      "inputParameters": {
+        "item_id": "${workflow.input.item_id}",
+        "repeat": "${workflow.input.repeat}",
+        "configs": "${workflow.input.configs}",
+        "dataset": "${workflow.input.dataset}",
+        "run_id": "${workflow.input.run_id}",
+        "judge": "${workflow.input.judge}"
+      }
+    },
+    {
+      "name": "fork_models",
+      "taskReferenceName": "fork_models",
+      "type": "FORK_JOIN_DYNAMIC",
+      "dynamicForkTasksParam": "dynamicTasks",
+      "dynamicForkTasksInputParamName": "dynamicTasksInput",
+      "inputParameters": {
+        "dynamicTasks": "${plan_configs.output.tasks}",
+        "dynamicTasksInput": "${plan_configs.output.inputs}"
+      }
+    },
+    {
+      "name": "join_models",
+      "taskReferenceName": "join_models",
+      "type": "JOIN"
+    }
+  ],
+  "outputParameters": {"results": "${join_models.output}"},
+  "ownerEmail": "nicholas.lotz@orkes.io",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0
+}

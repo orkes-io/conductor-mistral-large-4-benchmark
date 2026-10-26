@@ -1,0 +1,21 @@
+{
+  "run_id": "followup-l4-128k",
+  "rows": 9,
+  "configs": {
+    "l4_high_128k": {
+      "label": "Mistral Large 4 (reasoning high, 128k output cap)",
+      "runs": 9,
+      "pass_rate": 0.667,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "coding": 0.667
+      },
+      "latency_ms_median": 641246,
+      "latency_ms_p90": 749472,
+      "output_tokens_total": 569223,
+      "reasoning_tokens_total": 564669,
+      "output_tokens_median": 57724
+    }
+  },
+  "written": "/Users/nicklotz/mistral-large-4-benchmark/results/followup-l4-128k"
+}

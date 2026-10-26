@@ -1,0 +1,184 @@
+{
+  "name": "ml4_eval_one",
+  "description": "Runs one eval item against one model config: builds the request, calls the model (looping over tool calls for agentic items), runs hidden unit tests or an LLM judge where needed, scores the result and records it.",
+  "version": 1,
+  "schemaVersion": 2,
+  "inputParameters": ["item_id", "repeat", "config", "dataset", "run_id", "judge"],
+  "tasks": [
+    {
+      "name": "ml4_prepare_eval",
+      "taskReferenceName": "prepare",
+      "type": "SIMPLE",
+      "inputParameters": {
+        "item_id": "${workflow.input.item_id}",
+        "config": "${workflow.input.config}",
+        "dataset": "${workflow.input.dataset}"
+      }
+    },
+    {
+      "name": "by_mode",
+      "taskReferenceName": "by_mode",
+      "type": "SWITCH",
+      "evaluatorType": "value-param",
+      "expression": "mode",
+      "inputParameters": {"mode": "${prepare.output.mode}"},
+      "decisionCases": {
+        "agentic": [
+          {
+            "name": "init_agent",
+            "taskReferenceName": "init_agent",
+            "type": "SET_VARIABLE",
+            "inputParameters": {
+              "state": "${prepare.output.agent_state}",
+              "request": "${prepare.output.request}"
+            }
+          },
+          {
+            "name": "agent_loop",
+            "taskReferenceName": "agent_loop",
+            "type": "DO_WHILE",
+            "loopCondition": "if ($.agent_step['done'] == true) { false; } else { true; }",
+            "evaluatorType": "graaljs",
+            "inputParameters": {},
+            "loopOver": [
+              {
+                "name": "ml4_call_model",
+                "taskReferenceName": "agent_call",
+                "type": "SUB_WORKFLOW",
+                "subWorkflowParam": {"name": "ml4_call_model", "version": 1},
+                "inputParameters": {
+                  "route": "${prepare.output.route}",
+                  "request": "${workflow.variables.request}"
+                }
+              },
+              {
+                "name": "ml4_agent_step",
+                "taskReferenceName": "agent_step",
+                "type": "SIMPLE",
+                "inputParameters": {
+                  "item_id": "${workflow.input.item_id}",
+                  "config": "${workflow.input.config}",
+                  "route": "${prepare.output.route}",
+                  "state": "${workflow.variables.state}",
+                  "result": "${agent_call.output.result}",
+                  "dataset": "${workflow.input.dataset}"
+                }
+              },
+              {
+                "name": "save_agent_state",
+                "taskReferenceName": "save_agent_state",
+                "type": "SET_VARIABLE",
+                "inputParameters": {
+                  "state": "${agent_step.output.state}",
+                  "request": "${agent_step.output.request}"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "defaultCase": [
+        {
+          "name": "ml4_call_model",
+          "taskReferenceName": "call",
+          "type": "SUB_WORKFLOW",
+          "subWorkflowParam": {"name": "ml4_call_model", "version": 1},
+          "inputParameters": {
+            "route": "${prepare.output.route}",
+            "request": "${prepare.output.request}"
+          }
+        },
+        {
+          "name": "by_category",
+          "taskReferenceName": "by_category",
+          "type": "SWITCH",
+          "evaluatorType": "value-param",
+          "expression": "category",
+          "inputParameters": {"category": "${prepare.output.category}"},
+          "decisionCases": {
+            "coding": [
+              {
+                "name": "ml4_run_code",
+                "taskReferenceName": "run_code",
+                "type": "SIMPLE",
+                "inputParameters": {
+                  "item_id": "${workflow.input.item_id}",
+                  "result": "${call.output.result}",
+                  "dataset": "${workflow.input.dataset}"
+                }
+              }
+            ],
+            "your_data": [
+              {
+                "name": "ml4_prepare_judge",
+                "taskReferenceName": "prepare_judge",
+                "type": "SIMPLE",
+                "inputParameters": {
+                  "item_id": "${workflow.input.item_id}",
+                  "candidate_text": "${call.output.result.text}",
+                  "judge": "${workflow.input.judge}",
+                  "dataset": "${workflow.input.dataset}"
+                }
+              },
+              {
+                "name": "ml4_call_model",
+                "taskReferenceName": "judge_call",
+                "type": "SUB_WORKFLOW",
+                "subWorkflowParam": {"name": "ml4_call_model", "version": 1},
+                "inputParameters": {
+                  "route": "openai_chat",
+                  "request": "${prepare_judge.output.request}"
+                }
+              }
+            ]
+          },
+          "defaultCase": []
+        }
+      ]
+    },
+    {
+      "name": "ml4_score",
+      "taskReferenceName": "score",
+      "type": "SIMPLE",
+      "inputParameters": {
+        "item_id": "${workflow.input.item_id}",
+        "dataset": "${workflow.input.dataset}",
+        "result": "${call.output.result}",
+        "code_result": "${run_code.output.result}",
+        "agent_state": "${workflow.variables.state}",
+        "judge_result": "${judge_call.output.result}"
+      }
+    },
+    {
+      "name": "ml4_record",
+      "taskReferenceName": "record",
+      "type": "SIMPLE",
+      "inputParameters": {
+        "run_id": "${workflow.input.run_id}",
+        "item_id": "${workflow.input.item_id}",
+        "repeat": "${workflow.input.repeat}",
+        "config": "${workflow.input.config}",
+        "category": "${prepare.output.category}",
+        "title": "${prepare.output.title}",
+        "difficulty": "${prepare.output.difficulty}",
+        "result": "${call.output.result}",
+        "score_out": "${score.output}",
+        "agent_state": "${workflow.variables.state}",
+        "workflow_id": "${workflow.workflowId}",
+        "parent_workflow_id": "${workflow.parentWorkflowId}"
+      }
+    }
+  ],
+  "outputParameters": {
+    "item_id": "${workflow.input.item_id}",
+    "config_id": "${workflow.input.config.id}",
+    "pass": "${record.output.pass}",
+    "score": "${record.output.score}",
+    "latency_ms": "${record.output.latency_ms}",
+    "output_tokens": "${record.output.output_tokens}",
+    "reasoning_tokens": "${record.output.reasoning_tokens}"
+  },
+  "ownerEmail": "nicholas.lotz@orkes.io",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0
+}

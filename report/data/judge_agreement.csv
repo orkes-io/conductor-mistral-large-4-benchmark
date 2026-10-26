@@ -1,0 +1,6 @@
+config_id,judge_pass_rate,programmatic_pass_rate,agreement,runs_with_hallucination
+l4_off,0.78,1.0,0.78,8
+l4_high,1.0,1.0,1.0,0
+sol_low,0.97,0.86,0.83,0
+sol_high,1.0,0.83,0.83,0
+l3,0.83,0.83,0.94,5

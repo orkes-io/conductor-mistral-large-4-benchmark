@@ -1,0 +1,97 @@
+{
+  "run_id": "full-r3",
+  "rows": 380,
+  "configs": {
+    "l3": {
+      "label": "Mistral Large 3 (baseline)",
+      "runs": 76,
+      "pass_rate": 0.684,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "agentic": 0.833,
+        "coding": 0.45,
+        "grounding": 0.917,
+        "reasoning": 0.65,
+        "your_data": 0.75
+      },
+      "latency_ms_median": 5152,
+      "latency_ms_p90": 18936,
+      "output_tokens_total": 62086,
+      "reasoning_tokens_total": 0,
+      "output_tokens_median": 359
+    },
+    "l4_high": {
+      "label": "Mistral Large 4 (reasoning high)",
+      "runs": 76,
+      "pass_rate": 0.816,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "agentic": 1.0,
+        "coding": 0.4,
+        "grounding": 0.833,
+        "reasoning": 1.0,
+        "your_data": 1.0
+      },
+      "latency_ms_median": 18668,
+      "latency_ms_p90": 197723,
+      "output_tokens_total": 684385,
+      "reasoning_tokens_total": 652010,
+      "output_tokens_median": 1925
+    },
+    "l4_off": {
+      "label": "Mistral Large 4 (reasoning off)",
+      "runs": 76,
+      "pass_rate": 0.934,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "agentic": 1.0,
+        "coding": 0.95,
+        "grounding": 1.0,
+        "reasoning": 0.9,
+        "your_data": 0.833
+      },
+      "latency_ms_median": 5954,
+      "latency_ms_p90": 18735,
+      "output_tokens_total": 108431,
+      "reasoning_tokens_total": 0,
+      "output_tokens_median": 575
+    },
+    "sol_high": {
+      "label": "GPT-6.1 Sol (reasoning high)",
+      "runs": 76,
+      "pass_rate": 0.987,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "agentic": 1.0,
+        "coding": 1.0,
+        "grounding": 1.0,
+        "reasoning": 1.0,
+        "your_data": 0.917
+      },
+      "latency_ms_median": 7613,
+      "latency_ms_p90": 18200,
+      "output_tokens_total": 45134,
+      "reasoning_tokens_total": 26832,
+      "output_tokens_median": 400
+    },
+    "sol_low": {
+      "label": "GPT-6.1 Sol (reasoning low)",
+      "runs": 76,
+      "pass_rate": 0.987,
+      "api_errors": 0,
+      "pass_rate_by_category": {
+        "agentic": 1.0,
+        "coding": 1.0,
+        "grounding": 1.0,
+        "reasoning": 1.0,
+        "your_data": 0.917
+      },
+      "latency_ms_median": 5339,
+      "latency_ms_p90": 9143,
+      "output_tokens_total": 22722,
+      "reasoning_tokens_total": 4838,
+      "output_tokens_median": 257
+    }
+  },
+  "written": "/Users/nicklotz/mistral-large-4-benchmark/results/full-r3"
+}

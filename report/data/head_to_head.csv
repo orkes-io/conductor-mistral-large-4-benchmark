@@ -1,0 +1,5 @@
+first,second,items,first_better,tied,second_better
+Large 4 · reasoning off,GPT-6.1 Sol · low,76,0,65,11
+Large 4 · reasoning high,GPT-6.1 Sol · high,76,0,58,18
+Large 4 · reasoning off,Large 4 · reasoning high,76,18,49,9
+Large 4 · reasoning off,Large 3,76,31,41,4

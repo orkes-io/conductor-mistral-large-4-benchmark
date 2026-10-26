@@ -1,0 +1,71 @@
+{
+  "name": "ml4_bench_run",
+  "description": "Benchmark run: loads the eval set (local folder or URL), works through it in batches, fans each batch out to ml4_bench_item (which forks across model configs), then summarizes pass rates, latency and token usage.",
+  "version": 1,
+  "schemaVersion": 2,
+  "inputParameters": ["run_id", "dataset", "categories", "item_ids", "limit_per_category", "configs", "repeats", "batch_size", "judge"],
+  "tasks": [
+    {
+      "name": "ml4_prepare_run",
+      "taskReferenceName": "prepare_run",
+      "type": "SIMPLE",
+      "inputParameters": {
+        "dataset": "${workflow.input.dataset}",
+        "categories": "${workflow.input.categories}",
+        "item_ids": "${workflow.input.item_ids}",
+        "limit_per_category": "${workflow.input.limit_per_category}",
+        "repeats": "${workflow.input.repeats}",
+        "batch_size": "${workflow.input.batch_size}"
+      }
+    },
+    {
+      "name": "batch_loop",
+      "taskReferenceName": "batch_loop",
+      "type": "DO_WHILE",
+      "evaluatorType": "graaljs",
+      "inputParameters": {"batch_count": "${prepare_run.output.batch_count}"},
+      "loopCondition": "if ($.batch_loop['iteration'] < $.batch_count) { true; } else { false; }",
+      "loopOver": [
+        {
+          "name": "ml4_plan_batch_fork",
+          "taskReferenceName": "plan_batch",
+          "type": "SIMPLE",
+          "inputParameters": {
+            "batches": "${prepare_run.output.batches}",
+            "index": "${batch_loop.output.iteration}",
+            "configs": "${workflow.input.configs}",
+            "dataset": "${workflow.input.dataset}",
+            "run_id": "${workflow.input.run_id}",
+            "judge": "${workflow.input.judge}"
+          }
+        },
+        {
+          "name": "fork_items",
+          "taskReferenceName": "fork_items",
+          "type": "FORK_JOIN_DYNAMIC",
+          "dynamicForkTasksParam": "dynamicTasks",
+          "dynamicForkTasksInputParamName": "dynamicTasksInput",
+          "inputParameters": {
+            "dynamicTasks": "${plan_batch.output.tasks}",
+            "dynamicTasksInput": "${plan_batch.output.inputs}"
+          }
+        },
+        {
+          "name": "join_items",
+          "taskReferenceName": "join_items",
+          "type": "JOIN"
+        }
+      ]
+    },
+    {
+      "name": "ml4_summarize",
+      "taskReferenceName": "summarize",
+      "type": "SIMPLE",
+      "inputParameters": {"run_id": "${workflow.input.run_id}"}
+    }
+  ],
+  "outputParameters": {"summary": "${summarize.output}"},
+  "ownerEmail": "nicholas.lotz@orkes.io",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0
+}

@@ -1,0 +1,49 @@
+{
+  "env": "developer-edition",
+  "server": "https://developer.orkescloud.com",
+  "server_version": "5.6.0-rc2",
+  "workflow_id": "0sfjdbf878b0-d023-11f1-aff9-321d2204384c",
+  "workflow_status": "COMPLETED",
+  "checked_at": "2026-10-24 22:26:31 CDT",
+  "tasks": [
+    {
+      "task": "chat_mistral_large_4",
+      "model": "mistral-large-4",
+      "status": "COMPLETED_WITH_ERRORS",
+      "reason": "The content is not a string!",
+      "result": "",
+      "tokens": {
+        "promptTokens": null,
+        "completionTokens": null,
+        "tokenUsed": null
+      },
+      "duration_ms": 5524
+    },
+    {
+      "task": "chat_mistral_large_3",
+      "model": "mistral-large-2512",
+      "status": "COMPLETED",
+      "reason": "",
+      "result": "A workflow orchestration engine **automates, coordinates, and manages the execution of interconnected tasks or processes across systems to ensure reliable, scalable, and efficient workflows.**",
+      "tokens": {
+        "promptTokens": 16,
+        "completionTokens": 35,
+        "tokenUsed": 51
+      },
+      "duration_ms": 2651
+    },
+    {
+      "task": "chat_openai_control",
+      "model": "gpt-4.1",
+      "status": "COMPLETED",
+      "reason": "",
+      "result": "A workflow orchestration engine automates, coordinates, and manages the sequencing and execution of tasks or processes across systems and services to ensure smooth and efficient workflow completion.",
+      "tokens": {
+        "promptTokens": 20,
+        "completionTokens": 33,
+        "tokenUsed": 53
+      },
+      "duration_ms": 1985
+    }
+  ]
+}

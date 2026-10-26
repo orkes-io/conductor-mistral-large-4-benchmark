@@ -1,0 +1,45 @@
+{
+  "workflow_id": "06cb949c-4bee-47ab-b182-5c1bdee7b7c5",
+  "status": "COMPLETED",
+  "tasks": [
+    {
+      "ref": "chat_l4_via_litellm",
+      "status": "COMPLETED",
+      "output": {
+        "result": "A workflow orchestration engine automates and coordinates the execution of complex, multi-step business processes by managing task sequencing, dependencies, and data flow across distributed systems and services.",
+        "tokenUsed": 408,
+        "promptTokens": 16,
+        "completionTokens": 392,
+        "reasoningTokens": null,
+        "finishReason": "STOP"
+      },
+      "reason": null
+    },
+    {
+      "ref": "chat_l4_fast_via_litellm",
+      "status": "COMPLETED",
+      "output": {
+        "result": "A workflow orchestration engine coordinates and automates the execution of multiple tasks, processes, or services across distributed systems, managing their dependencies, sequencing, and error handling to ensure they run reliably and efficiently from start to finish.",
+        "tokenUsed": 61,
+        "promptTokens": 16,
+        "completionTokens": 45,
+        "reasoningTokens": null,
+        "finishReason": "STOP"
+      },
+      "reason": null
+    },
+    {
+      "ref": "chat_openai_control",
+      "status": "COMPLETED",
+      "output": {
+        "result": "A workflow orchestration engine automates the coordination, execution, and management of tasks and processes across multiple systems or services within a defined workflow.",
+        "tokenUsed": 49,
+        "promptTokens": 20,
+        "completionTokens": 29,
+        "reasoningTokens": 0,
+        "finishReason": "STOP"
+      },
+      "reason": null
+    }
+  ]
+}

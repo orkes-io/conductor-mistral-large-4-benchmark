@@ -1,0 +1,10 @@
+item,pass_128k,finish_128k,output_tokens_128k,latency_s_128k,pass_at_32k_3runs
+coding-001,True,stop,82958,749,0/3
+coding-002,True,stop,57724,670,1/3
+coding-004,True,stop,46938,289,0/3
+coding-005,True,stop,24548,175,1/3
+coding-006,True,stop,23474,749,0/3
+coding-007,False,length,131072,756,0/3
+coding-008,False,length,131072,641,0/3
+coding-009,False,error,61660,303,1/3
+coding-011,True,stop,9777,372,1/3
